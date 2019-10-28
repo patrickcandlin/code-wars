@@ -1,3 +1,4 @@
+
 function pigIt(str){
   return str.split(' ')
       .map( word => {
@@ -5,6 +6,7 @@ function pigIt(str){
       })
       .join(' ')
 }
+
 
 function pigIt(str){
   let word = ''
