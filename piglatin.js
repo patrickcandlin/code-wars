@@ -1,5 +1,14 @@
 
 function pigIt(str){
+  return str.split(' ')
+      .map( word => {
+          return word.substring(1,word.length) + word.substring(0,1) + 'ay' 
+      })
+      .join(' ')
+}
+
+
+function pigIt(str){
   let word = ''
   const piggedStr = []
   //loop through the string
