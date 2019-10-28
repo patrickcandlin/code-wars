@@ -24,11 +24,7 @@ function isValidWalk(walk) {
 
     walk.map(direction =>  walkingTime[direction]())
 
-    if(walk.length === 10 && (start.x === 0 && start.y === 0)){
-        return true
-    }else{
-        return false
-    }
+    return walk.length === 10 && (start.x === 0 && start.y === 0)
   }
 
 //some test cases for you...
