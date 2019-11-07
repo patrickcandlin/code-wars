@@ -17,9 +17,20 @@ Find the product abc.
 
 function findPythagoreanTripletBySum(sum){
     //set the triplet equal to to the sum of three numbers 
-    let c = 3
-    let b = 2
-    let a = 1
+    let a = 3
+    let b = 4
+    let c = 5
+    let multiplier = 1
+
+    while(a+b+c <= sum){
+        if(a+b+c === sum ){
+            return `${a}${b}${c}`
+        }
+        multiplier++
+        a *= multiplier
+        b *= multiplier
+        c *= multiplier
+    }
    //returns the products that equal the sum
    if (c + b + a === sum)
     return 
