@@ -5,7 +5,7 @@ function isPrime(num) {
     if(num % 2 === 0 || num % 3 === 0) return false;
 
     let index = 5
-
+    
     while( index * index <= num){
         if(num % index === 0 || num % (index+2) === 0) return false;
         index += 6
@@ -13,6 +13,17 @@ function isPrime(num) {
     
     return true
 
+  }
+
+  function isPrime(num){
+    if(num <= 1) return false;
+    if(num <= 3) return true;
+    if(num % 2 === 0 || num % 3 === 0) return false; 
+    return !Array(Math.floor(Math.sqrt(num)))
+            .fill()
+            .map((v,i) => i + 1)
+            .map(v => v >= 5 && num % v === 0)
+            .includes(true)
   }
 
 

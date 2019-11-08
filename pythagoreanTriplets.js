@@ -7,33 +7,27 @@ For example, 3^2 + 4^2 = 9 + 16 = 25 = 5^2.
 There exists exactly one Pythagorean triplet for which a + b + c = 1000.
 Find the product abc.
 */
-// a^2+b^2=c^2
-// c = sqrt(a^2 + b^2)
-// = sqrt(a^2 + b^2)
-// a < b < c
-// 1000 = a + b + sqrt(a^2 + b^2)
-// (1000 - b - a)^2 - b^2 = a2
-// 1000 = (1000(b-500))/(b-1000) + b + sqrt(((1000(b-500))/(b-1000))^2 + b^2)
+// Euclid's formula[3] is a fundamental formula for generating Pythagorean triples given 
+// an arbitrary pair of integers m and n with m > n > 0. The formula states that the integers
+// a=m^{2}-n^{2},\ \,b=2mn,\ \,c=m^{2}+n^{2}
+// if a+b+c = 1000; a=m^2-n^2; b=2mn; c=m^2+n^2 
 
 function findPythagoreanTripletBySum(sum){
     //set the triplet equal to to the sum of three numbers 
-    let a = 3
-    let b = 4
-    let c = 5
-    let multiplier = 1
+    let n = 1
+    let m = 2
+    let a = (m,n) => m*m - n*n 
+    let b = (m,n) => 2*m*n
+    let c = (m,n) => m*m + n*n
 
-    while(a+b+c <= sum){
+    while(a(m,n)+ b(m,n) + c(m,n) <= sum){
         if(a+b+c === sum ){
             return `${a}${b}${c}`
         }
-        multiplier++
-        a *= multiplier
-        b *= multiplier
-        c *= multiplier
+        n++
+        m++
     }
-   //returns the products that equal the sum
-   if (c + b + a === sum)
-    return 
 }
 
 console.log(findPythagoreanTripletBySum(12), '345')
+console.log(findPythagoreanTripletBySum(1000), 'something')
