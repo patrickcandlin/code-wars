@@ -9,25 +9,13 @@ Find the product abc.
 */
 // Euclid's formula[3] is a fundamental formula for generating Pythagorean triples given 
 // an arbitrary pair of integers m and n with m > n > 0. The formula states that the integers
-// a=m^{2}-n^{2},\ \,b=2mn,\ \,c=m^{2}+n^{2}
+// a=k(m^{2}-n^{2}); b=k(2mn); c=k(m^{2}+n^{2})
 // if a+b+c = 1000; a=m^2-n^2; b=2mn; c=m^2+n^2 
 //(8, 15, 17)
 // 8 = a = 17 - 2n^{2}; b = 15/2m = n ; 17 - n^2 = m^2
 // 9/2 = a = n^{2}; b = 15/2m = n ; 17 - n^2 = m^2
 function findPythagoreanTripletBySum(sum){
-    //set the triplet equal to to the sum of three numbers 
-    let n = 1
-    let m = 2
-    let k = 1
-    function a(n,m,k){
-        return  k*(m*m - n*n) 
-    }
-    function b(n,m,k){
-        return  2*m*n*k
-    }
-    function c(n,m,k){
-        return  k*(m*m + n*n)
-    }
+    let n = 1; m = 2; k = 1;
     while(a(n,m,k)+ b(n,m,k) + c(n,m,k) <= sum){
         if(a(n,m,k)+ b(n,m,k) + c(n,m,k) === sum ){
             return `(${a(n,m,k)},${b(n,m,k)},${c(n,m,k)})`
@@ -41,6 +29,7 @@ function findPythagoreanTripletBySum(sum){
         k = 1
         m = n + 1
         while(a(n,m,k)+ b(n,m,k) + c(n,m,k) <= sum){
+            console.log(k)
             if(a(n,m,k)+ b(n,m,k) + c(n,m,k) === sum ){
                 return `(${a(n,m,k)},${b(n,m,k)},${c(n,m,k)})`
             }
@@ -51,7 +40,16 @@ function findPythagoreanTripletBySum(sum){
         n++
         m++
     }
-    return `(${a(n,m)},${b(n,m)},${c(n,m)})`
+    return 'No triplet exist for that sum'
+}
+function a(n,m,k){
+    return  k*(m*m - n*n) 
+}
+function b(n,m,k){
+    return  2*m*n*k
+}
+function c(n,m,k){
+    return  k*(m*m + n*n)
 }
 
 console.log(findPythagoreanTripletBySum(12), '(3,4,5)')
