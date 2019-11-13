@@ -14,11 +14,11 @@ def is_prime(num)
         if num % index == 0 || num % index + 2 == 0
             return bool = false
         end
-        index = index + 6
+        index = index + 1
     end
     bool
 end
-
+puts is_prime(958297)
 puts is_prime(0), "0 is not prime"
 puts is_prime(1), "1 is not prime"
 puts is_prime(2),   "2 is prime"
