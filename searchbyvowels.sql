@@ -1,0 +1,15 @@
+SELECT CITY 
+FROM STATION
+WHERE SUBSTR(CITY, 1, 1) = 'A'
+or SUBSTR(CITY, 1, 1) = 'E'
+or SUBSTR(CITY, 1, 1) = 'I'
+or SUBSTR(CITY, 1, 1) = 'O'
+or SUBSTR(CITY, 1, 1) = 'U';
+
+SELECT DISTINCT CITY
+FROM STATION 
+WHERE SUBSTR(CITY, -1, 1) = 'a'
+or SUBSTR(CITY, -1, 1) = 'e'
+or SUBSTR(CITY, -1, 1) = 'i'
+or SUBSTR(CITY, -1, 1) = 'o'
+or SUBSTR(CITY, -1, 1) =  'u';
